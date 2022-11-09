@@ -10,7 +10,7 @@ const addEmployee = [{
         name: 'addEmployee',
         type: 'list',
         message: 'What type of employee would you like to add?',
-        choices: ['Manager','Engineer','Intern','My Roster Is Complete'],
+        choices: ['Engineer','Intern','My Roster Is Complete'],
     }]
 
 const genQuestions = [{
@@ -18,7 +18,7 @@ const genQuestions = [{
         type: 'input',
         message: "What is your employee's name?",
     },
-    {   name: 'ID',
+    {   name: 'id',
         type: 'input',
         message: "What is your employee's ID number?",
     },
@@ -37,16 +37,39 @@ const genQuestions = [{
         message: "What is your Engineer's Git Hub username?",
     }]
     const inQuestions = [{
-        name: 'internSchool',
+        name: 'school',
         type: 'input',
         message: "Where is your Intern currently enrolled?",
     }]
 function addManager() {
+    inquirer.prompt([{
+        name: 'name',
+        type: 'input',
+        message: "What is your name?",
+    },
+    {   name: 'id',
+        type: 'input',
+        message: "What is your ID number?",
+    },
+    {   name: 'email',
+        type: 'input',
+        message: "What is your Email address?",
+    },
+    {   name: 'officeNumber',
+        type: 'input',
+        message: "What is your Manager's office number?",
+    }
+    ])}
 
-}
+
 
 function addTeamMember() {
-    inquirer.prompt(addEmployee).then(function(results){
+    inquirer.prompt([{
+        name: 'addEmployee',
+        type: 'list',
+        message: 'What type of employee would you like to add?',
+        choices: ['Engineer','Intern','My Roster Is Complete'],
+    }]).then(function(results){
             switch(results.addEmployee) {
                 case 'Manager': manquestion(); break;
                 case 'Engineer': inquirer.prompt(genQuestions + engQuestions); break;
