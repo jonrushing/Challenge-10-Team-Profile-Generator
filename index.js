@@ -4,17 +4,19 @@ const inquirer = require('inquirer')
 const emailVal = require('email-validator')
 
 //importing internal modules
+const templates = require('./src/templates')
 const Engineer = require('./lib/Engineer')
 const Manager= require('./lib/Manager')
 const Intern = require('./lib/Intern')
-//const Template = require('./src/templates')
+
 
 //empty array to be filled by employee's created
 const roster = []
 
 
-function addManager() {
-    inquirer.prompt([{
+const addManager = () => {
+    
+    return inquirer.prompt([{
         name: 'name',
         type: 'input',
         message: "What is your name?",
@@ -49,8 +51,7 @@ function addManager() {
                 console.log ("--Please enter a valid email!--")
                 return false;
             }
-    }
-        
+    }    
     },
     {   name: 'officeNumber',
         type: 'input',
@@ -68,14 +69,13 @@ function addManager() {
         const {name, id, email, officeNumber} = managerInfo;
         const manager = new Manager(name, id, email, officeNumber);
 
-        roster.push(manager);
-        console.log(manager);
-        addTeamMember();
+        roster.push(manager);  
     })
 }
 
-function addTeamMember() {
-    inquirer.prompt([{
+const addTeamMember = () => {
+
+    return inquirer.prompt([{
         name: 'role',
         type: 'list',
         message: 'What type of employee would you like to add?',
@@ -162,7 +162,6 @@ function addTeamMember() {
             employee = new Intern(name, id, email, school)
         }
 
-        console.log(employee);
         roster.push(employee);
 
         if (addEmployee){
@@ -175,4 +174,25 @@ function addTeamMember() {
    
 };
 
-addManager();
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("Success! Your Html page has been created!")
+        }
+    })
+}; 
+
+addManager()
+.then(addTeamMember)
+    .then(roster => {
+        return templates(roster);
+    })
+    .then(HTML => {
+        writeFile(HTML)
+    })
+  .catch(err => {
+ console.log(err);
+  });
