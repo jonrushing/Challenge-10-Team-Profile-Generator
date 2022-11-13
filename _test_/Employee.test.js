@@ -1,3 +1,4 @@
+//Test to make sure data from inquirer can be added to a constructor object
 const Employee = require('../lib/Employee')
 
 describe('Employee', () => {
@@ -10,6 +11,7 @@ describe('Employee', () => {
     });
 });
 
+//testing fuction to see that the data recieved is a string and also not number
     describe("getName", () =>{
         it("should return a 'Name' value that is a 'string'", () => {
             const name = "Bob"
@@ -26,7 +28,8 @@ describe('Employee', () => {
             expect(obj.getName()).not.toEqual(expect.any(Number));
           });
         });
-      
+
+//testing to make sure the data recieved is a number
         describe("getID", () => {
           it("should return a value that is a 'number'", () => {
             const id = 5
@@ -35,7 +38,8 @@ describe('Employee', () => {
             expect(obj.getId()).toEqual(expect.any(Number));
           });
         });
-      
+
+//testing fuction to see that the data recieved is a string and also not number
         describe("getEmail", () =>{
             it("should return a 'Email' value that is a 'string'", () => {
                 const email = "Bob@bob.com"
@@ -52,7 +56,8 @@ describe('Employee', () => {
                 expect(obj.getEmail()).not.toEqual(expect.any(Number));
               });
             });
-      
+
+//testing to see that the function returns the proper role
         describe("getRole", () => {
             it("should return with the value of 'employee'", () => {
                 obj = new Employee("bob", 5, "blah@gmail.com")

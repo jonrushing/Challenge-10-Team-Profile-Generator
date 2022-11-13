@@ -1,4 +1,4 @@
-
+//manager HTML card template
  const ManagerCard = manager => {
     return `<div class="card employee-card m-5">
     <div class="card-header bg-primary">
@@ -13,8 +13,9 @@
         </ul>
     </div>
 </div>`;
-
 };
+
+//engineer HTML card template
 const EngineerCard = engineer => {
     return `<div class="card employee-card m-5">
     <div class="card-header bg-danger">
@@ -29,8 +30,9 @@ const EngineerCard = engineer => {
         </ul>
     </div>
 </div>`;
-
 };
+
+//intern HTML card template
 const InternCard = intern => {
     return `<div class="card employee-card m-5">
     <div class="card-header bg-warning ">
@@ -48,6 +50,9 @@ const InternCard = intern => {
 
 };
 
+//function used to filter out which employee goes through it's the proper card template
+//the results of which are added into the 'teamInput' array used in the main HTML template
+//and exported to the main 'index.js' file
 teamDeck = (team) => {
 const teamInput = [];
 
@@ -72,6 +77,7 @@ const finalteam = maintemplate(compiledTeam);
 return finalteam;
 }
 
+//Main HTML template for which the collective employee HTML card are inserted  
 function maintemplate(compiledTeam){
 
 return `<!DOCTYPE html>

@@ -13,7 +13,7 @@ const Intern = require('./lib/Intern')
 //empty array to be filled by employee's created
 const roster = []
 
-
+// inquire questions asked to build a manager object which will be added to the roster array
 const addManager = () => {
     
     return inquirer.prompt([{
@@ -45,6 +45,7 @@ const addManager = () => {
         type: 'input',
         message: "What is your Email address?",
         validate: email => {
+                //imported email validater module being used here
                 if (emailVal.validate(email) === true) {
                 return true;
             } else {
@@ -65,6 +66,8 @@ const addManager = () => {
                 }
             }
     }
+//breaking down the differnt parts of the manager info and building a new manager object 
+//to be added to the roster
     ]).then(managerInfo =>{
         const {name, id, email, officeNumber} = managerInfo;
         const manager = new Manager(name, id, email, officeNumber);
@@ -73,6 +76,7 @@ const addManager = () => {
     })
 }
 
+//inquire questions asked to build a Engineer/Intern object which will be added to the roster array
 const addTeamMember = () => {
 
     return inquirer.prompt([{
@@ -149,7 +153,8 @@ const addTeamMember = () => {
         message: 'Would you like to add another employee?',
         default: false
     }
-              
+//breaking down the differnt parts of the Engineer/Intern info, finding out which one was choosen,
+//then building a new Engineer/Intern object to be added to the roster              
     ]).then(teamMemberInfo => {
         let  {role, name, id, email, github, school, addEmployee} = teamMemberInfo;
         let employee
@@ -173,9 +178,9 @@ const addTeamMember = () => {
     })
    
 };
-
-const writeFile = data => {
-    fs.writeFile('./dist/index.html', data, err => {
+//Function used to creat the HTMl index file
+const writeFile = HTML => {
+    fs.writeFile('./dist/index.html', HTML, err => {
         if (err) {
             console.log(err);
             return;
@@ -185,6 +190,8 @@ const writeFile = data => {
     })
 }; 
 
+//the combined use of all the functions to generate an HTML file from the inquirer data filtered through the 
+//appropriate employee template from the 'templates.js' module 
 addManager()
 .then(addTeamMember)
     .then(roster => {

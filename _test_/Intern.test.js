@@ -1,6 +1,6 @@
 const Intern = require('../lib/Intern')
 
-
+//testing fuction to see that the data recieved is a string and also not number
 describe("getschool", () =>{
     it("should return a 'school' value that is a 'string'", () => {
         const school = "NYU"
@@ -18,6 +18,7 @@ describe("getschool", () =>{
       });
     });
 
+//testing to see that the function returns the proper role
     describe("getRole", () => {
         it("should return with the value of 'Intern'", () => {
             obj = new Intern("bob", 5, "blah@gmail.com")
