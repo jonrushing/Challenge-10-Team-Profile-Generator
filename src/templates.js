@@ -1,5 +1,5 @@
 
- const generateManager = manager => {
+ const ManagerCard = manager => {
     return `<div class="card employee-card m-5">
     <div class="card-header bg-primary">
         <h2 class="card-title">${manager.name}</h2>
@@ -15,7 +15,7 @@
 </div>`;
 
 };
-const generateEngineer = engineer => {
+const EngineerCard = engineer => {
     return `<div class="card employee-card m-5">
     <div class="card-header bg-danger">
         <h2 class="card-title">${engineer.name}</h2>
@@ -31,7 +31,7 @@ const generateEngineer = engineer => {
 </div>`;
 
 };
-const generateIntern = intern => {
+const InternCard = intern => {
     return `<div class="card employee-card m-5">
     <div class="card-header bg-warning ">
         <h2 class="card-title">${intern.name}</h2>
@@ -53,16 +53,16 @@ const teamInput = [];
 
     teamInput.push(team
         .filter(employee => employee.getRole() === "Manager")
-        .map(manager => generateManager(manager))
+        .map(manager => ManagerCard(manager))
     );
     teamInput.push(team
         .filter(employee => employee.getRole() === "Engineer")
-        .map(engineer => generateEngineer(engineer))
+        .map(engineer => EngineerCard(engineer))
         .join("")
     );
     teamInput.push(team
         .filter(employee => employee.getRole() === "Intern")
-        .map(intern => generateIntern(intern))
+        .map(intern => InternCard(intern))
         .join("")
     );
 const compiledTeam = teamInput.join("");
