@@ -1,6 +1,6 @@
 
  const generateManager = manager => {
-    return `<div class="card employee-card mr-5">
+    return `<div class="card employee-card m-5">
     <div class="card-header bg-primary">
         <h2 class="card-title">${manager.name}</h2>
         <h3 class="card-title">${manager.getRole()}</h3>
@@ -16,7 +16,7 @@
 
 };
 const generateEngineer = engineer => {
-    return `<div class="card employee-card mr-5">
+    return `<div class="card employee-card m-5">
     <div class="card-header bg-danger">
         <h2 class="card-title">${engineer.name}</h2>
         <h3 class="card-title"></i>${engineer.getRole()}</h3>
@@ -32,7 +32,7 @@ const generateEngineer = engineer => {
 
 };
 const generateIntern = intern => {
-    return `<div class="card employee-card mr-5">
+    return `<div class="card employee-card m-5">
     <div class="card-header bg-warning ">
         <h2 class="card-title">${intern.name}</h2>
         <h3 class="card-title">${intern.getRole()}</h3>
