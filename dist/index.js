@@ -4,10 +4,10 @@ const inquirer = require('inquirer')
 const emailVal = require('email-validator')
 
 //importing internal modules
-const templates = require('./src/templates')
-const Engineer = require('./lib/Engineer')
-const Manager= require('./lib/Manager')
-const Intern = require('./lib/Intern')
+const templates = require('../src/templates')
+const Engineer = require('../lib/Engineer')
+const Manager= require('../lib/Manager')
+const Intern = require('../lib/Intern')
 
 
 //empty array to be filled by employee's created
