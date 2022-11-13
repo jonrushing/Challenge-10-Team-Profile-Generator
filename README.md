@@ -14,12 +14,12 @@
   
   ## Installation <a name="installation"></a>
   Copy the git hub link and paste it into your terminal. You can use software like VScode to edit the javascript!
+  Make sure you run "npm install" to import all the dependencies.
   
   ## License <a name="license"></a>
   [For more information about the license click here](https://choosealicense.com/licenses/mit/)
   ## Usage <a name="usage"></a>
-  To run the tests make sure you run "npm install" to import all the dependencies then run "npm test"
-  When you're ready to generat your roster simply run "node index.js" in your terminal where the project file is located.
+  When you're ready to generate your roster simply run "node index.js" in your terminal where the project file is located.
 
   ## Contribution <a name="contributing"></a>
   The repo is public so all are welcome to contribute if you’d like. Let me know if you’d like to help!
